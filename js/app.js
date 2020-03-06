@@ -111,7 +111,7 @@ function parse_sysex( e ){
 	switch ( message_type ) {
 		case X_FW_VER:
 			if( data.length != 3 ) return X_ERROR;
-			ver version = data.join('.');
+			var version = data.join('.');
 			console.log('version:', version);
 			$('#version_label').text( version );
 			req_active_preset();
