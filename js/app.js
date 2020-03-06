@@ -91,9 +91,9 @@ function req_active_preset( ){
 	to_dwc.sendSysex( DWC_MANUF, [X_REQ, X_ACTIVE_PRESET] )
 }
 
-function req_controls( ctrl_id ){
-	alert('Reqesting control');
-	to_dwc.sendSysex( DWC_MANUF, [X_REQ, X_REQ_CTRL_PARAMS, ACTIVE_PRESET, ctrl_id ] )
+function req_controls( preset_id, ctrl_id ){
+	console.log('Reqesting control: ', ctrl_id);
+	to_dwc.sendSysex( DWC_MANUF, [X_REQ, X_REQ_CTRL_PARAMS, preset_id, ctrl_id ] )
 }
 
 function parse_sysex( e ){
@@ -121,7 +121,7 @@ function parse_sysex( e ){
 			ACTIVE_PRESET = data[0];
 			console.log('active preset: ', ACTIVE_PRESET);
 			$('#active_preset').text( ACTIVE_PRESET );
-			req_controls( 0 );
+			req_controls( ACTIVE_PRESET, 0 );
 		break;
 		case X_REQ_CTRL_PARAMS:
 			var preset_id = data[0];
@@ -131,13 +131,22 @@ function parse_sysex( e ){
 			console.log('controls: ', ctrl );
 
 			for (var param in ctrls){
-				console.log('parametro: ', ctrls[param]);
-				$('#' + ctrls[param] + '_' + ctrl_id).val();
-			}
+				//console.log('parametro: ', ctrls[param]);
+				if( param == 5 || param == 11 || param == 17 ){
+					console.log('checkbox', ctrls[param]);
+				}
+				else{
+					$('#' + ctrl_id + '_' + param).val(ctrls[param]);
+				}
 
-			if( ++ctrl_id <= NUM_CTRL ){
-				req_controls( ctrl_id+1 );
 			}
+			ctrl_id = ctrl_id + 1;
+			if( ctrl_id <= NUM_CTRL ){ //request for all the controls in the preset
+				req_controls( ACTIVE_PRESET, ctrl_id );
+			}
+		break;
+		default:
+			console.log( 'unknown sysex data:', data);
 		break;
 	}
 }
