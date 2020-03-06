@@ -1,3 +1,4 @@
+var editor_version = '0.1.1';
 var DWC_MIDI_NAME = 'UBIStage Drawbars Commander';
 var DWC_MIDI_MANUF_ID_1			=	0x37;
 var DWC_MIDI_MANUF_ID_2			=	0x72;
@@ -32,6 +33,7 @@ var SEND_BOTH = 2;
 var IS_TOGGLE = 4;
 
 $(function(){
+	$('#editor_version_label').text( editor_version );
 	// https://github.com/djipco/webmidi
 	WebMidi.enable(function (err) {
 
@@ -118,7 +120,7 @@ function parse_sysex( e ){
 			if( data.length != 3 ) return X_ERROR;
 			var version = data.join('.');
 			console.log('version:', version);
-			$('#version_label').text( version );
+			$('#fw_version_label').text( version );
 			req_active_preset();
 		break;
 		case X_ACTIVE_PRESET:
