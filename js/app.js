@@ -27,6 +27,10 @@ var NUM_PRESETS = 4;
 var NUM_CTRL = 18;
 var ACTIVE_PRESET = '';
 
+var IS_GLOBAL = 1;
+var SEND_BOTH = 2;
+var IS_TOGGLE = 4;
+
 $(function(){
 	// https://github.com/djipco/webmidi
 	WebMidi.enable(function (err) {
@@ -82,12 +86,12 @@ $(function(){
 });
 
 function req_fw_version( ){
-	alert('Reqesting firmware version');
+	console.log('Reqesting firmware version');
 	to_dwc.sendSysex( DWC_MANUF, [X_REQ, X_FW_VER] )
 }
 
 function req_active_preset( ){
-	alert('Reqesting active prst');
+	console.log('Reqesting active prst');
 	to_dwc.sendSysex( DWC_MANUF, [X_REQ, X_ACTIVE_PRESET] )
 }
 
@@ -103,10 +107,11 @@ function parse_sysex( e ){
 	if ( e.data[4] != X_REP ) return null; // Discard all messages that are not a reply
 
 	var message_type = e.data[5];
-	console.log();(message_type);
+	// console.log( 'message_type', message_type );
+	// console.log( 'unknown sysex data:', e.data);
+
 	var data = Object.values(e.data);
 	data = data.slice( 6, -1 );
-	console.log( 'data_array', data);
 
 	switch ( message_type ) {
 		case X_FW_VER:
@@ -128,12 +133,21 @@ function parse_sysex( e ){
 			if( preset_id != ACTIVE_PRESET ) return null; //Discard the message because it's for a preset we are not editing
 			var ctrl_id = data[1];
 			var ctrls = data.slice( 2 );
-			console.log('controls: ', ctrl );
 
 			for (var param in ctrls){
 				//console.log('parametro: ', ctrls[param]);
-				if( param == 5 || param == 11 || param == 17 ){
-					console.log('checkbox', ctrls[param]);
+				if( param == 5 || param == 11 || param == 17 ){ // this are the checkboxes
+
+					if( ctrls[param] & IS_GLOBAL){
+						$('#' + ctrl_id + '_' + param + '_global').attr('checked', 'checked');
+					}
+					if( ctrls[param] & SEND_BOTH){
+						$('#' + ctrl_id + '_' + param + '_both').attr('checked', 'checked');
+					}
+					if( ctrls[param] & IS_TOGGLE){
+						$('#' + ctrl_id + '_' + param + '_toggle').attr('checked', 'checked');
+					}
+
 				}
 				else{
 					$('#' + ctrl_id + '_' + param).val(ctrls[param]);
