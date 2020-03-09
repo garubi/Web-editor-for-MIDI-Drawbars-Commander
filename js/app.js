@@ -1,4 +1,4 @@
-var editor_version = '0.1.1';
+var editor_version = '0.1.2';
 var DWC_MIDI_NAME = 'UBIStage Drawbars Commander';
 var DWC_MIDI_MANUF_ID_1			=	0x37;
 var DWC_MIDI_MANUF_ID_2			=	0x72;
