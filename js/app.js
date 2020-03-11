@@ -40,6 +40,7 @@ var X_ERROR = 0x7F; // Something went wrong
 var error = null;
 var midi_connected = false // store the connection status to avoid two "I'm connected"
 var midi_disconnected = false // store the connection status to avoid two "I'm disconnected"
+
 var NUM_PRESETS = 4;
 var NUM_CTRL = 18;
 var ACTIVE_PRESET = '';
@@ -96,6 +97,9 @@ $(function(){
 						midi_connected = false;
 					}
 			  });
+		  }
+		  else{
+			  //not connected
 		  }
 
 	  }
