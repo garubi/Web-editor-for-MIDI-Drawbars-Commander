@@ -1,4 +1,4 @@
-var editor_version = '0.1.2';
+var editor_version = '0.2.0';
 var DWC_MIDI_NAME = 'UBIStage Drawbars Commander';
 var DWC_MIDI_MANUF_ID_1			=	0x37;
 var DWC_MIDI_MANUF_ID_2			=	0x72;
@@ -134,6 +134,11 @@ function set_param( preset_id, ctrl_id, param_id, value ){
 function raise_error(error){
 	console.log('error', error);
 }
+function save_preset( preset_id ){
+	console.log('send save preset', preset_id);
+	to_dwc.sendSysex( DWC_MANUF, [X_REQ, X_CMD_SAVE_PRESET, preset_id] )
+
+}
 function parse_sysex( e ){
 	console.log();('Received SysEx:', e.data );
 
@@ -238,6 +243,12 @@ function parse_sysex( e ){
 				$('#' + ctrl_id + '_' + param_id).val(param_value);
 			}
 		break;
+		case X_CMD_SAVE_PRESET:
+		console.log('reply to X_CMD_SAVE_PRESET');
+		if( error )return raise_error(error);
+		if( data.length != 1 || data[0] > NUM_PRESETS-1 )return raise_error('invalid preset id');
+		console.log('preset saved: ', data[0]);
+		break;
 		default:
 			console.log( 'unknown sysex data:', data);
 		break;
@@ -245,11 +256,18 @@ function parse_sysex( e ){
 }
 
 $('.preset_form input,select').change(function(c) {
-	// console.log('changed');
+	console.log('changed');
+	$('#preset_save_btn').removeAttr('disabled')
+
 	var id = this.id;
 	var ind = id.split("_");
 	var ctrl_id = ind[0];
 	var param_id = ind[1];
 	var value = $( '#' + this.id).val();
 	set_param( ACTIVE_PRESET, ctrl_id, param_id, value);
+});
+
+$('#preset_save_btn').click(function(e) {
+	console.log('click save');
+	save_preset( ACTIVE_PRESET );
 });
