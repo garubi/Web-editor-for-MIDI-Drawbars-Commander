@@ -51,6 +51,7 @@ var IS_TOGGLE = 4;
 
 $(function(){
 	$('#editor_version_label').text( editor_version );
+	disable_inputs();
 	// https://github.com/djipco/webmidi
 	WebMidi.enable(function (err) {
 
@@ -76,14 +77,14 @@ $(function(){
 				from_dwc.addListener('sysex', "all", function (e) { parse_sysex( e ) });
 		  }
 
-
 		  if( to_dwc && from_dwc ){
 
 			  WebMidi.addListener("connected", e => {
 				if ( !midi_connected){
 					midi_connected = true;
 					midi_disconnected = false;
-					alert("Device connected: " + e.port.name, e)
+					alert("Device connected: " + e.port.name, e);
+					enable_inputs();
 					req_fw_version();
 					// param_init();
 				}
@@ -92,8 +93,8 @@ $(function(){
 			  WebMidi.addListener("disconnected", e => {
 				  if ( !midi_disconnected){
 					  	midi_disconnected = true
-					    alert("Device disconnected: " + e.port.name, e);
 						alert("Device disconnected: " + e.port.name)
+						disable_inputs();
 						midi_connected = false;
 					}
 			  });
@@ -106,6 +107,14 @@ $(function(){
   	}, true // Enable SysEx support
 	);
 });
+
+function disable_inputs(){
+	$('#input_parameters input,select').prop('disabled', true);
+}
+
+function enable_inputs(){
+	$('#input_parameters input,select').prop('disabled', false);
+}
 
 function req_fw_version( ){
 	console.log('Reqesting firmware version');
@@ -257,7 +266,7 @@ function parse_sysex( e ){
 
 $('.preset_form input,select').change(function(c) {
 	console.log('changed');
-	$('#preset_save_btn').removeAttr('disabled')
+	$('#preset_save_btn').prop('disabled', false)
 
 	var id = this.id;
 	var ind = id.split("_");
