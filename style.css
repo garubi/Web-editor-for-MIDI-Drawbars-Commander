@@ -2,3 +2,6 @@
 main .container {
 	padding-top: 93px;
 }
+.is_changed {
+	border-color:red;
+}

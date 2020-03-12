@@ -251,12 +251,15 @@ function parse_sysex( e ){
 			else{
 				$('#' + ctrl_id + '_' + param_id).val(param_value);
 			}
+			$('#' + ctrl_id + '_' + param_id).addClass('is_changed');
 		break;
 		case X_CMD_SAVE_PRESET:
-		console.log('reply to X_CMD_SAVE_PRESET');
-		if( error )return raise_error(error);
-		if( data.length != 1 || data[0] > NUM_PRESETS-1 )return raise_error('invalid preset id');
-		console.log('preset saved: ', data[0]);
+			console.log('reply to X_CMD_SAVE_PRESET');
+			if( error )return raise_error(error);
+			if( data.length != 1 || data[0] > NUM_PRESETS-1 )return raise_error('invalid preset id');
+			console.log('preset saved: ', data[0]);
+			$('#preset_save_btn').prop('disabled', true)
+			$('.is_changed').removeClass('is_changed');
 		break;
 		default:
 			console.log( 'unknown sysex data:', data);
