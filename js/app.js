@@ -278,7 +278,7 @@ function parse_sysex( e ){
 	}
 }
 
-$('.preset_form input,select').change(function(c) {
+$('#input_parameters input,select').change(function(c) {
 	console.log('changed');
 	$('#preset_save_btn').prop('disabled', false)
 
