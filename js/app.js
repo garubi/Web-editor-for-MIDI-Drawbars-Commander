@@ -116,10 +116,12 @@ $(function(){
 
 function disable_inputs(){
 	$('#input_parameters input,select').prop('disabled', true);
+	$('#preset_reload_btn').prop('disabled', true);
 }
 
 function enable_inputs(){
 	$('#input_parameters input,select').prop('disabled', false);
+	$('#preset_reload_btn').prop('disabled', false);
 }
 
 function req_fw_version( ){
@@ -178,7 +180,7 @@ function parse_sysex( e ){
 		case X_FW_VER:
 		console.log('receive version');
 			if( error )return raise_error(error);
-			if( data.length != 3 )return raise_error(error);
+			if( data.length != 3 )return raise_error('invalid version data');
 			var version = data.join('.');
 			console.log('version:', version);
 			$('#fw_version_label').text( version );
@@ -195,7 +197,7 @@ function parse_sysex( e ){
 		case X_REQ_CTRL_PARAMS:
 			if( error )return raise_error(error);
 			var preset_id = data[0];
-			if( preset_id != ACTIVE_PRESET ) return null; //Discard the message because it's for a preset we are not editing
+			if( preset_id != ACTIVE_PRESET ) return raise_error('not current preset'); //Discard the message because it's for a preset we are not editing
 			var ctrl_id = data[1];
 			var ctrls = data.slice( 2 );
 
@@ -219,17 +221,19 @@ function parse_sysex( e ){
 				}
 			}
 			ctrl_id = ctrl_id + 1;
-			if( ctrl_id <= NUM_CTRL ){ //request for all the controls in the preset
+			if( ctrl_id < NUM_CTRL ){ //request for all the controls in the preset
 				req_controls( ACTIVE_PRESET, ctrl_id );
 			}
+			$('.is_changed').removeClass('is_changed');
+			$('#preset_save_btn').prop('disabled', true)
 		break;
 		case X_SET_CTRL_PARAMS:
 			if( error )return raise_error(error);
 			var preset_id = data[0];
-			if( preset_id != ACTIVE_PRESET ) return null; //Discard the message because it's for a preset we are not editing
+			if( preset_id != ACTIVE_PRESET ) return raise_error('not current preset'); //Discard the message because it's for a preset we are not editing
 			var ctrl_id = data[1];
 			ctrl_id = ctrl_id + 1;
-			if( ctrl_id <= NUM_CTRL ){ //request for all the controls in the preset
+			if( ctrl_id < NUM_CTRL ){ //request for all the controls in the preset
 				set_controls( ACTIVE_PRESET, ctrl_id );
 			}
 		break;
@@ -238,7 +242,7 @@ function parse_sysex( e ){
 			if( error )return raise_error(error);
 			if( data.length != 4 )return raise_error('invalid parameter data');
 			var preset_id = data[0];
-			if( preset_id != ACTIVE_PRESET ) return null; //Discard the message because it's for a preset we are not editing
+			if( preset_id != ACTIVE_PRESET ) return raise_error('not current preset'); //Discard the message because it's for a preset we are not editing
 			var ctrl_id = data[1];
 			var param_id = data[2];
 			var param_value = data[3];
@@ -263,6 +267,7 @@ function parse_sysex( e ){
 			console.log('reply to X_CMD_SAVE_PRESET');
 			if( error )return raise_error(error);
 			if( data.length != 1 || data[0] > NUM_PRESETS-1 )return raise_error('invalid preset id');
+			alert('Preset ' + data[0] + ' saved.');
 			console.log('preset saved: ', data[0]);
 			$('#preset_save_btn').prop('disabled', true)
 			$('.is_changed').removeClass('is_changed');
@@ -288,4 +293,9 @@ $('.preset_form input,select').change(function(c) {
 $('#preset_save_btn').click(function(e) {
 	console.log('click save');
 	save_preset( ACTIVE_PRESET );
+});
+
+$('#preset_reload_btn').click(function(e) {
+	console.log('click reload');
+	req_fw_version();
 });
