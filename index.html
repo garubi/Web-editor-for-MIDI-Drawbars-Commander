@@ -13,7 +13,7 @@
 	<!-- <meta name="theme-color" content="#563d7c"> -->
 
   </head>
-  <body class="d-flex flex-column h-100 bg-light">
+  <body class="d-flex flex-column h-100 bg-warning">
 <header>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -25,7 +25,8 @@
 			</span>
 	    </div>
 		<div class="nav navbar d-flex" id="navbarCollapse">
-			<button disabled id="preset_save_btn" class="btn btn-warning btn-sm ml-auto">Save</button>
+			<button disabled id="preset_save_btn" class="btn btn-warning btn-sm ml-auto" title="Permanentely store changes on the device">Save</button>
+			<button id="preset_reoad_btn" class="btn btn-secondary btn-sm ml-auto" title="Discard changes and reload data from the device">Reload</button>
 		</div>
 	   </div>
 	</nav>
@@ -34,7 +35,7 @@
 
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
-  <div class="container">
+  <div class="container" id="input_parameters">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 		  <li class="nav-item">
 		    <a class="nav-link active" id="upper-tab" data-toggle="tab" href="#upper" role="tab" aria-controls="upper" aria-selected="true">
