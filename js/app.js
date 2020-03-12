@@ -85,6 +85,9 @@ $(function(){
 					midi_disconnected = false;
 					alert("Device connected: " + e.port.name, e);
 					enable_inputs();
+					$('#connection_status').removeClass('badge-danger');
+					$('#connection_status').addClass('badge-success');
+					$('#connection_status').text('Connected');
 					req_fw_version();
 					// param_init();
 				}
@@ -95,6 +98,9 @@ $(function(){
 					  	midi_disconnected = true
 						alert("Device disconnected: " + e.port.name)
 						disable_inputs();
+						$('#connection_status').addClass('badge-danger');
+						$('#connection_status').removeClass('badge-success');
+						$('#connection_status').text('Disconnected');
 						midi_connected = false;
 					}
 			  });
