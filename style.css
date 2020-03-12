@@ -10,3 +10,10 @@ input[type=text],input[type=number],select{
 .is_changed {
 	border-color:red;
 }
+
+.nav-tabs .nav-link{
+	border-color: #FFC107 #FFC107 #ffffff #FFC107;
+	/* border-color: #FFC107; */
+	color: #495057;
+	background-color: #EBEBE4;
+}
