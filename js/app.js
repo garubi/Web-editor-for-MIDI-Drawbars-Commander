@@ -32,10 +32,10 @@ var X_ERROR = 0x7F; // Something went wrong
 /*
  * ERROR CODES
  */
-  var X_ERROR_UNKNOWN = 0x7F;
-  var X_ERROR_PRESET  = 0x10;
-  var X_ERROR_CONTROL = 0x20;
-  var X_ERROR_PARAM   = 0x30;
+  var X_ERROR_UNKNOWN = 0x7F; //127
+  var X_ERROR_PRESET  = 0x10; //16
+  var X_ERROR_CONTROL = 0x20; //32
+  var X_ERROR_PARAM   = 0x30; //48
 
 var error = null;
 var midi_connected = false // store the connection status to avoid two "I'm connected"
