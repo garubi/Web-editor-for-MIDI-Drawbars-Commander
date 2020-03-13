@@ -3,7 +3,11 @@ main .container {
 	padding-top: 93px;
 }
 
-input[type=text],input[type=number],select{
+main label{
+	margin-bottom:2px;
+}
+
+input[type=text],input[type=number],select, label{
 	width: 100%;
 }
 
