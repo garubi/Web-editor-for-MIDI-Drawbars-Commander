@@ -191,7 +191,7 @@ function parse_sysex( e ){
 			if( data.length != 1 || data[0] > NUM_PRESETS-1 )return raise_error('invalid preset id');
 			ACTIVE_PRESET = data[0];
 			console.log('active preset: ', ACTIVE_PRESET);
-			$('#active_preset').text( ACTIVE_PRESET );
+			$('#active_preset').text( ACTIVE_PRESET +1 );
 			req_controls( ACTIVE_PRESET, 0 );
 		break;
 		case X_REQ_CTRL_PARAMS:
