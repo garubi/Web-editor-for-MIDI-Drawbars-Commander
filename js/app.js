@@ -307,7 +307,15 @@ $('#input_parameters input[type=checkbox]').change(function(c) {
 
 $('#preset_save_btn').click(function(e) {
 	console.log('click save');
-	save_preset( ACTIVE_PRESET );
+	var r = confirm("This action will overwrite the current preset values. Are you sure?");
+	if (r == true) {
+		console.log('ok save');
+	  save_preset( ACTIVE_PRESET );
+	} else {
+		console.log('stop save');
+	  alert('Save Cancelled')
+	}
+
 });
 
 $('#preset_reload_btn').click(function(e) {
