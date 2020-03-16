@@ -11,8 +11,9 @@ input[type=text],input[type=number],select, label{
 	width: 100%;
 }
 
-.is_changed {
-	border-color:red;
+.is_changed{
+	/* border-color:red; */
+	border: 1px solid #FFC107;
 }
 
 .nav-tabs .nav-link{

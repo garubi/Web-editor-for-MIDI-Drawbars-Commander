@@ -151,6 +151,7 @@ function set_param( preset_id, ctrl_id, param_id, value ){
 function raise_error(error){
 	console.log('error', error);
 }
+
 function save_preset( preset_id ){
 	console.log('send save preset', preset_id);
 	to_dwc.sendSysex( DWC_MANUF, [X_REQ, X_CMD_SAVE_PRESET, preset_id] )
@@ -250,18 +251,22 @@ function parse_sysex( e ){
 			if( param_id == 5 || param_id == 11 || param_id == 17 ){ // this are the checkboxes
 				if( param_value & IS_GLOBAL){
 					$('#' + ctrl_id + '_' + param_id + '_global').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_global').closest('td').addClass('is_changed');
 				}
 				if( param_value & SEND_BOTH){
 					$('#' + ctrl_id + '_' + param_id + '_both').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_both').closest('td').addClass('is_changed');
 				}
 				if( param_value & IS_TOGGLE){
 					$('#' + ctrl_id + '_' + param_id + '_toggle').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_toggle').closest('td').addClass('is_changed');
 				}
 			}
 			else{
 				$('#' + ctrl_id + '_' + param_id).val(param_value);
+				$('#' + ctrl_id + '_' + param_id).addClass('is_changed');
 			}
-			$('#' + ctrl_id + '_' + param_id).addClass('is_changed');
+
 		break;
 		case X_CMD_SAVE_PRESET:
 			console.log('reply to X_CMD_SAVE_PRESET');
@@ -278,15 +283,27 @@ function parse_sysex( e ){
 	}
 }
 
-$('#input_parameters input,select').change(function(c) {
-	console.log('changed');
+$('#input_parameters input[type=text],input[type=number],select').change(function(c) {
 	$('#preset_save_btn').prop('disabled', false)
-
 	var id = this.id;
 	var ind = id.split("_");
 	var ctrl_id = ind[0];
 	var param_id = ind[1];
 	var value = $( '#' + this.id).val();
+	console.log('changed txt: ', value);
+	set_param( ACTIVE_PRESET, ctrl_id, param_id, value);
+});
+$('#input_parameters input[type=checkbox]').change(function(c) {
+	$('#preset_save_btn').prop('disabled', false)
+	var id = this.id;
+	var ind = id.split("_");
+	var ctrl_id = ind[0];
+	var param_id = ind[1];
+	var value = 0;
+	$( '.' + ctrl_id + '_' + param_id + ':checkbox:checked').each(function() {
+	   value = value + parseInt($(this).val())
+	});
+	console.log('changed check: ', value);
 	set_param( ACTIVE_PRESET, ctrl_id, param_id, value);
 });
 
