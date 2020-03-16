@@ -89,7 +89,6 @@ $(function(){
 					$('#connection_status').addClass('badge-success');
 					$('#connection_status').text('Connected');
 					req_fw_version();
-					// param_init();
 				}
 			  });
 
@@ -207,15 +206,14 @@ function parse_sysex( e ){
 				if( param == 5 || param == 11 || param == 17 ){ // this are the checkboxes
 
 					if( ctrls[param] & IS_GLOBAL){
-						$('#' + ctrl_id + '_' + param + '_global').attr('checked', 'checked');
+						$('#' + ctrl_id + '_' + param + '_global').prop('checked', true);
 					}
 					if( ctrls[param] & SEND_BOTH){
-						$('#' + ctrl_id + '_' + param + '_both').attr('checked', 'checked');
+						$('#' + ctrl_id + '_' + param + '_both').prop('checked', true);
 					}
 					if( ctrls[param] & IS_TOGGLE){
-						$('#' + ctrl_id + '_' + param + '_toggle').attr('checked', 'checked');
+						$('#' + ctrl_id + '_' + param + '_toggle').prop('checked', true);
 					}
-
 				}
 				else{
 					$('#' + ctrl_id + '_' + param).val(ctrls[param]);
@@ -250,15 +248,15 @@ function parse_sysex( e ){
 			console.log('value:', param_value);
 			if( param_id == 5 || param_id == 11 || param_id == 17 ){ // this are the checkboxes
 				if( param_value & IS_GLOBAL){
-					$('#' + ctrl_id + '_' + param_id + '_global').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_global').prop('checked', true);
 					$('#' + ctrl_id + '_' + param_id + '_global').closest('td').addClass('is_changed');
 				}
 				if( param_value & SEND_BOTH){
-					$('#' + ctrl_id + '_' + param_id + '_both').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_both').prop('checked', true);
 					$('#' + ctrl_id + '_' + param_id + '_both').closest('td').addClass('is_changed');
 				}
 				if( param_value & IS_TOGGLE){
-					$('#' + ctrl_id + '_' + param_id + '_toggle').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_toggle').prop('checked', true);
 					$('#' + ctrl_id + '_' + param_id + '_toggle').closest('td').addClass('is_changed');
 				}
 			}
@@ -314,5 +312,6 @@ $('#preset_save_btn').click(function(e) {
 
 $('#preset_reload_btn').click(function(e) {
 	console.log('click reload');
+	$('input[type=checkbox]').prop('checked', false)
 	req_fw_version();
 });
