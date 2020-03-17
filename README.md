@@ -1,6 +1,7 @@
 # Web editor for MIDI Drawbars Commander
 
-A Web MIDI API based editor for the configuration of [MIDI Drawbars Commander](https://github.com/garubi/MIDI-Drawbars-Commander)
+An editor for the configuration of [MIDI Drawbars Commander](https://github.com/garubi/MIDI-Drawbars-Commander) based on WebMIDI API
+Try it at https://garubi.github.io/Web-editor-for-MIDI-Drawbars-Commander/
 
 ## Requirements ##
 This editor runs in your browser.
