@@ -3,6 +3,8 @@
 An editor for the configuration of [MIDI Drawbars Commander](https://github.com/garubi/MIDI-Drawbars-Commander) based on WebMIDI API
 Try it at https://garubi.github.io/Web-editor-for-MIDI-Drawbars-Commander/
 
+![Editor screenshot](/img/screenshot.png)
+
 ## Requirements ##
 This editor runs in your browser.
 
