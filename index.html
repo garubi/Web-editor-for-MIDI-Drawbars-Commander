@@ -1,659 +1,799 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>Drawbar Commander Settings Editor</title>
-	</head>
-	<body>
-		<h1>Drawbar Commander Settings Editor</h1>
-		<p>
-			Firmware version: <tt id="fw_version_label">-.-.-</tt> - Editor version: <tt id="editor_version_label">-.-.-</tt>
-		</p>
-		<p>
-			Active preset: <tt id="active_preset"></tt>
-		</p>
-		<form class="preset_form">
-			<h2>Upper bank</h2>
-			<table id="0">
-				<tr>
-					<th></th>
-					<th>DB 16'</th>
-					<th>DB 5 <small>1/3</small>'</th>
-					<th>DB 8</th>
-					<th>DB 4</th>
-					<th>DB 2 <small>2/3</small>'</th>
-					<th>DB 2</th>
-					<th>DB 1 <small>3/5</small>'</th>
-					<th>DB 1 <small>1/3</small>'</th>
-					<th>DB 1</th>
-					<th>Expr</th>
-					<th>btn 1</th>
-					<th>btn 2</th>
-					<th>btn 3</th>
-					<th>btn 4</th>
-					<th>btn 5</th>
-					<th>btn 6</th>
-					<th>btn 7</th>
-					<th>Ped</th>
-				</tr>
-				<tr>
-					<th>type</th>
-					<td><select id="8_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="7_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="6_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="5_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="4_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="3_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="2_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="1_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="0_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="9_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="10_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="11_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="12_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="13_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="14_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="15_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="16_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="17_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-				</tr>
-				<tr>
-					<th>param.</th>
-					<td><input id="8_1" type="text" size="4"></td>
-					<td><input id="7_1" type="text" size="4"></td>
-					<td><input id="6_1" type="text" size="4"></td>
-					<td><input id="5_1" type="text" size="4"></td>
-					<td><input id="4_1" type="text" size="4"></td>
-					<td><input id="3_1" type="text" size="4"></td>
-					<td><input id="2_1" type="text" size="4"></td>
-					<td><input id="1_1" type="text" size="4"></td>
-					<td><input id="0_1" type="text" size="4"></td>
-					<td><input id="9_1" type="text" size="4"></td>
-					<td><input id="10_1" type="text" size="4"></td>
-					<td><input id="11_1" type="text" size="4"></td>
-					<td><input id="12_1" type="text" size="4"></td>
-					<td><input id="13_1" type="text" size="4"></td>
-					<td><input id="14_1" type="text" size="4"></td>
-					<td><input id="15_1" type="text" size="4"></td>
-					<td><input id="16_1" type="text" size="4"></td>
-					<td><input id="17_1" type="text" size="4"></td>
-				</tr>
-				<tr>
-					<th>min.</th>
-					<td><input id="8_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="7_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="6_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="5_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="4_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="3_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="2_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="1_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="0_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="9_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="10_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="11_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="12_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="13_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="14_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="15_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="16_2" type="number" size="3" min="0" max="127"></td>
-					<td><input id="17_2" type="number" size="3" min="0" max="127"></td>
-				</tr>
-				<tr>
-					<th>max.</th>
-					<td><input id="8_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="7_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="6_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="5_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="4_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="3_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="2_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="2_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="0_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="9_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="10_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="11_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="12_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="13_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="14_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="15_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="16_3" type="number" size="3" min="0" max="127"></td>
-					<td><input id="17_3" type="number" size="3" min="0" max="127"></td>
-				</tr>
-				<tr>
-					<th>channel</th>
-					<td><input id="8_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="7_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="6_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="5_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="4_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="3_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="2_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="1_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="0_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="9_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="10_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="11_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="12_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="13_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="14_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="15_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="16_4" type="number" size="3" min="1" max="16"></td>
-					<td><input id="17_4" type="number" size="3" min="1" max="16"></td>
-				</tr>
-				<tr>
-					<th>behaviour</th>
-					<td>
-						<label><input id="8_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="8_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="7_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="7_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="6_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="6_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="5_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="5_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="4_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="4_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="3_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="3_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="2_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="2_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="1_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="1_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="0_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="0_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="9_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="9_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="10_5_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="10_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="10_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="11_5_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="11_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="11_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="12_5_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="12_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="12_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="13_5_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="13_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="13_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="14_5_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="14_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="14_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="15_5_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="15_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="15_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="16_5_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="16_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="16_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="17_5_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="17_5_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="17_5_both" type="checkbox" value="2"> both</label><br>
-					</td>
-				</tr>
-			</table>
-			<h2>Lower bank</h2>
-			<table id="1">
-				<tr>
-					<th></th>
-					<th>DB 16'</th>
-					<th>DB 5 <small>1/3</small>'</th>
-					<th>DB 8</th>
-					<th>DB 4</th>
-					<th>DB 2 <small>2/3</small>'</th>
-					<th>DB 2</th>
-					<th>DB 1 <small>3/5</small>'</th>
-					<th>DB 1 <small>1/3</small>'</th>
-					<th>DB 1</th>
-					<th>Expr</th>
-					<th>btn 1</th>
-					<th>btn 2</th>
-					<th>btn 3</th>
-					<th>btn 4</th>
-					<th>btn 5</th>
-					<th>btn 6</th>
-					<th>btn 7</th>
-					<th>Ped</th>
-				</tr>
-				<tr>
-					<th>type</th>
-					<td><select id="8_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="7_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="6_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="5_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="4_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="3_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="2_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="1_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="0_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="9_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="10_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="11_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="12_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="13_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="14_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="15_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="16_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="17_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-				</tr>
-				<tr>
-					<th>param.</th>
-					<td><input id="8_7" type="text" size="4"></td>
-					<td><input id="7_7" type="text" size="4"></td>
-					<td><input id="6_7" type="text" size="4"></td>
-					<td><input id="5_7" type="text" size="4"></td>
-					<td><input id="4_7" type="text" size="4"></td>
-					<td><input id="3_7" type="text" size="4"></td>
-					<td><input id="2_7" type="text" size="4"></td>
-					<td><input id="1_7" type="text" size="4"></td>
-					<td><input id="0_7" type="text" size="4"></td>
-					<td><input id="9_7" type="text" size="4"></td>
-					<td><input id="10_7" type="text" size="4"></td>
-					<td><input id="11_7" type="text" size="4"></td>
-					<td><input id="12_7" type="text" size="4"></td>
-					<td><input id="13_7" type="text" size="4"></td>
-					<td><input id="14_7" type="text" size="4"></td>
-					<td><input id="15_7" type="text" size="4"></td>
-					<td><input id="16_7" type="text" size="4"></td>
-					<td><input id="17_7" type="text" size="4"></td>
-				</tr>
-				<tr>
-					<th>min.</th>
-					<td><input id="8_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="7_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="6_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="5_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="4_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="3_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="2_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="1_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="0_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="9_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="10_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="11_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="12_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="13_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="14_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="15_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="16_8" type="number" size="3" min="0" max="127"></td>
-					<td><input id="17_8" type="number" size="3" min="0" max="127"></td>
-				</tr>
-				<tr>
-					<th>max.</th>
-					<td><input id="8_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="7_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="6_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="5_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="4_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="3_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="2_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="1_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="0_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="9_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="10_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="11_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="12_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="13_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="14_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="15_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="16_9" type="number" size="3" min="0" max="127"></td>
-					<td><input id="17_9" type="number" size="3" min="0" max="127"></td>
-				</tr>
-				<tr>
-					<th>channel</th>
-					<td><input id="8_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="7_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="6_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="5_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="4_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="3_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="2_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="1_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="0_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="9_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="10_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="11_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="12_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="13_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="14_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="15_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="16_10" type="number" size="3" min="1" max="16"></td>
-					<td><input id="17_10" type="number" size="3" min="1" max="16"></td>
-				</tr>
-				<tr>
-					<th>behaviour</th>
-					<td>
-						<label><input id="8_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="8_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="7_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="7_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="6_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="6_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="5_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="5_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="4_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="4_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="3_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="3_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="2_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="2_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="1_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="1_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="0_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="0_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="9_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="9_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="10_11_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="10_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="10_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="11_11_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="11_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="11_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="12_11_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="12_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="12_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="13_11_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="13_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="13_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="14_11_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="14_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="14_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="15_11_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="15_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="15_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="16_11_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="16_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="16_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="17_11_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="17_11_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="17_11_both" type="checkbox" value="2"> both</label><br>
-					</td>
-				</tr>
-			</table>
-			<h2>ALT bank</h2>
-			<table id="2">
-				<tr>
-					<th></th>
-					<th>DB 16'</th>
-					<th>DB 5 <small>1/3</small>'</th>
-					<th>DB 8</th>
-					<th>DB 4</th>
-					<th>DB 2 <small>2/3</small>'</th>
-					<th>DB 2</th>
-					<th>DB 1 <small>3/5</small>'</th>
-					<th>DB 1 <small>1/3</small>'</th>
-					<th>DB 1</th>
-					<th>Expr</th>
-					<th>btn 1</th>
-					<th>btn 2</th>
-					<th>btn 3</th>
-					<th>btn 4</th>
-					<th>btn 5</th>
-					<th>btn 6</th>
-					<th>btn 7</th>
-					<th>Ped</th>
-				</tr>
-				<tr>
-					<th>type</th>
-					<td><select id="8_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="7_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="6_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="5_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="4_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="3_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="2_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="1_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="0_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="9_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="10_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="11_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="12_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="13_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="14_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="15_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="16_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-					<td><select id="17_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
-				</tr>
-				<tr>
-					<th>param.</th>
-					<td><input id="8_13" type="text" size="4"></td>
-					<td><input id="7_13" type="text" size="4"></td>
-					<td><input id="6_13" type="text" size="4"></td>
-					<td><input id="5_13" type="text" size="4"></td>
-					<td><input id="4_13" type="text" size="4"></td>
-					<td><input id="3_13" type="text" size="4"></td>
-					<td><input id="2_13" type="text" size="4"></td>
-					<td><input id="1_13" type="text" size="4"></td>
-					<td><input id="0_13" type="text" size="4"></td>
-					<td><input id="9_13" type="text" size="4"></td>
-					<td><input id="10_13" type="text" size="4"></td>
-					<td><input id="11_13" type="text" size="4"></td>
-					<td><input id="12_13" type="text" size="4"></td>
-					<td><input id="13_13" type="text" size="4"></td>
-					<td><input id="14_13" type="text" size="4"></td>
-					<td><input id="15_13" type="text" size="4"></td>
-					<td><input id="16_13" type="text" size="4"></td>
-					<td><input id="17_13" type="text" size="4"></td>
-				</tr>
-				<tr>
-					<th>min.</th>
-					<td><input id="8_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="7_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="6_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="5_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="4_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="3_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="2_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="1_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="0_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="9_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="10_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="11_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="12_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="13_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="14_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="15_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="16_14" type="number" size="3" min="0" max="127"></td>
-					<td><input id="17_14" type="number" size="3" min="0" max="127"></td>
-				</tr>
-				<tr>
-					<th>max.</th>
-					<td><input id="8_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="7_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="6_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="5_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="4_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="3_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="2_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="1_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="0_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="9_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="10_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="11_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="12_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="13_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="14_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="15_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="16_15" type="number" size="3" min="0" max="127"></td>
-					<td><input id="17_15" type="number" size="3" min="0" max="127"></td>
-				</tr>
-				<tr>
-					<th>channel</th>
-					<td><input id="8_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="7_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="6_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="5_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="4_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="3_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="2_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="1_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="0_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="9_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="10_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="11_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="12_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="13_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="14_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="15_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="16_16" type="number" size="3" min="1" max="16"></td>
-					<td><input id="17_16" type="number" size="3" min="1" max="16"></td>
-				</tr>
-				<tr>
-					<th>behaviour</th>
-					<td>
-						<label><input id="8_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="8_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="7_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="7_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="6_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="6_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="5_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="5_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="4_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="4_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="3_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="3_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="2_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="2_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="1_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="1_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="0_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="0_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="9_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="9_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="10_17_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="10_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="10_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="11_17_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="11_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="11_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="12_17_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="12_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="12_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="13_17_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="13_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="13_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="14_17_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="14_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="14_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="15_17_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="15_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="15_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="16_17_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="16_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="16_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-					<td>
-						<label><input id="17_17_toggle" type="checkbox" value="4"> toggle</label><br>
-						<label><input id="17_17_global" type="checkbox" value="1"> global</label><br>
-						<label><input id="17_17_both" type="checkbox" value="2"> both</label><br>
-					</td>
-				</tr>
-			</table>
-			<button type="submit">Invia</button>
-			<button disabled id="save">Salva</button>
-		</form>
-		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="js/webmidi.min.js"></script>
-		<script type="text/javascript" src="js/app.js"></script>
-	</body>
+
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Stefano Garuti">
+    <title>Drawbar Commander Settings Editor</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="style.css" rel="stylesheet">
+	<!-- <meta name="theme-color" content="#563d7c"> -->
+
+  </head>
+  <body class="d-flex flex-column h-100 bg-warning">
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	  <div class="container d-flex">
+	    <a class="navbar-brand" href="#">Drawbar Commander Settings Editor</a>
+		<div class="nav navbar ml-auto">
+			<span class="navbar-text text-white ml-auto">
+				Active preset: <span class="badge badge-warning badge-pill" id="active_preset">-</span>
+			</span>
+	    </div>
+		<div class="nav navbar d-flex" id="navbarCollapse">
+			<button disabled id="preset_save_btn" class="btn btn-warning btn-sm ml-auto" title="Permanentely store changes on the device">Save</button>
+			<button id="preset_reload_btn" class="btn btn-secondary btn-sm ml-auto" title="Discard changes and reload data from the device">Reload</button>
+		</div>
+	   </div>
+	</nav>
+
+</header>
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+  <div class="container" id="input_parameters">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+		  <li class="nav-item">
+		    <a class="nav-link active" id="upper-tab" data-toggle="tab" href="#upper" role="tab" aria-controls="upper" aria-selected="true">
+				Upper Bank
+			</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="lower-tab" data-toggle="tab" href="#lower" role="tab" aria-controls="lower" aria-selected="false">
+				Lower Bank
+			</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="alt-tab" data-toggle="tab" href="#alt" role="tab" aria-controls="alt" aria-selected="false">
+				ALT Bank
+			</a>
+		  </li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active  xbg-white" id="upper" role="tabpanel" aria-labelledby="upper-tab">
+				<div class="card border-top-0"><div class="card-body">
+					<table class="mx-auto">
+						<tr>
+							<th></th>
+							<th>DB 16'</th>
+							<th>DB 5 <small>1/3</small>'</th>
+							<th>DB 8</th>
+							<th>DB 4</th>
+							<th>DB 2 <small>2/3</small>'</th>
+							<th>DB 2</th>
+							<th>DB 1 <small>3/5</small>'</th>
+							<th>DB 1 <small>1/3</small>'</th>
+							<th>DB 1</th>
+						</tr>
+
+						<tr>
+							<th>type</th>
+							<td><select id="8_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="7_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="6_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="5_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="4_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="3_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="2_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="1_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="0_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+						</tr>
+
+						<tr>
+							<th>param.</th>
+							<td><input id="8_1" type="text" size="4"></td>
+							<td><input id="7_1" type="text" size="4"></td>
+							<td><input id="6_1" type="text" size="4"></td>
+							<td><input id="5_1" type="text" size="4"></td>
+							<td><input id="4_1" type="text" size="4"></td>
+							<td><input id="3_1" type="text" size="4"></td>
+							<td><input id="2_1" type="text" size="4"></td>
+							<td><input id="1_1" type="text" size="4"></td>
+							<td><input id="0_1" type="text" size="4"></td>
+						</tr>
+						<tr>
+							<th>min.</th>
+							<td><input id="8_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="7_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="6_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="5_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="4_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="3_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="2_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="1_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="0_2" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>max.</th>
+							<td><input id="8_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="7_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="6_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="5_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="4_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="3_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="2_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="1_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="0_3" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>channel</th>
+							<td><input id="8_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="7_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="6_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="5_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="4_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="3_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="2_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="1_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="0_4" type="number" size="3" min="1" max="16"></td>
+						</tr>
+						<tr>
+							<th>behavior</th>
+							<td>
+								<label><input class="8_5" id="8_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="8_5" id="8_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="7_5" id="7_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="7_5" id="7_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="6_5" id="6_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="6_5" id="6_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="5_5" id="5_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="5_5" id="5_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="4_5" id="4_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="4_5" id="4_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="3_5" id="3_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="3_5" id="3_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="2_5" id="2_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="2_5" id="2_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="1_5" id="1_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="1_5" id="1_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="0_5" id="0_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="0_5" id="0_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+						</tr>
+						<tr>
+							<th></th>
+							<th>Expr</th>
+							<th>btn 1</th>
+							<th>btn 2</th>
+							<th>btn 3</th>
+							<th>btn 4</th>
+							<th>btn 5</th>
+							<th>btn 6</th>
+							<th>btn 7</th>
+							<th>Ped</th>
+						</tr>
+						<tr>
+							<th>type</th>
+							<td><select id="9_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="10_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="11_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="12_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="13_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="14_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="15_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="16_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="17_0"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+						</tr>
+						<tr>
+							<th>param.</th>
+							<td><input id="9_1" type="text" size="4"></td>
+							<td><input id="10_1" type="text" size="4"></td>
+							<td><input id="11_1" type="text" size="4"></td>
+							<td><input id="12_1" type="text" size="4"></td>
+							<td><input id="13_1" type="text" size="4"></td>
+							<td><input id="14_1" type="text" size="4"></td>
+							<td><input id="15_1" type="text" size="4"></td>
+							<td><input id="16_1" type="text" size="4"></td>
+							<td><input id="17_1" type="text" size="4"></td>
+						</tr>
+						<tr>
+							<th>min.</th>
+							<td><input id="9_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="10_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="11_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="12_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="13_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="14_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="15_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="16_2" type="number" size="3" min="0" max="127"></td>
+							<td><input id="17_2" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>max.</th>
+							<td><input id="9_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="10_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="11_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="12_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="13_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="14_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="15_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="16_3" type="number" size="3" min="0" max="127"></td>
+							<td><input id="17_3" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>channel</th>
+							<td><input id="9_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="10_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="11_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="12_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="13_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="14_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="15_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="16_4" type="number" size="3" min="1" max="16"></td>
+							<td><input id="17_4" type="number" size="3" min="1" max="16"></td>
+						</tr>
+						<tr>
+							<th>behavior</th>
+							<td>
+								<label><input class="9_5" id="9_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="9_5" id="9_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="10_5" id="10_5_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="10_5" id="10_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="10_5" id="10_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="11_5" id="11_5_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="11_5" id="11_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="11_5" id="11_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="12_5" id="12_5_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="12_5_" id="12_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="12_5" id="12_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="13_5" id="13_5_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="13_5" id="13_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="13_5" id="13_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="14_5" id="14_5_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="14_5" id="14_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="14_5" id="14_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="15_5" id="15_5_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="15_5" id="15_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="15_5" id="15_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="16_5" id="16_5_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="16_5" id="16_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="16_5" id="16_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="17_5" id="17_5_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="17_5" id="17_5_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="17_5" id="17_5_both" type="checkbox" value="2"> both</label><br>
+							</td>
+						</tr>
+					</table>
+				</div></div>
+			</div>
+			<div class="tab-pane fade  bg-white" id="lower" role="tabpanel" aria-labelledby="lower-tab">
+				<div class="card border-top-0"><div class="card-body">
+					<table class="mx-auto">
+						<tr>
+							<th></th>
+							<th>DB 16'</th>
+							<th>DB 5 <small>1/3</small>'</th>
+							<th>DB 8</th>
+							<th>DB 4</th>
+							<th>DB 2 <small>2/3</small>'</th>
+							<th>DB 2</th>
+							<th>DB 1 <small>3/5</small>'</th>
+							<th>DB 1 <small>1/3</small>'</th>
+							<th>DB 1</th>
+						</tr>
+
+						<tr>
+							<th>type</th>
+							<td><select id="8_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="7_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="6_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="5_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="4_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="3_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="2_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="1_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="0_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+						</tr>
+
+						<tr>
+							<th>param.</th>
+							<td><input id="8_7" type="text" size="4"></td>
+							<td><input id="7_7" type="text" size="4"></td>
+							<td><input id="6_7" type="text" size="4"></td>
+							<td><input id="5_7" type="text" size="4"></td>
+							<td><input id="4_7" type="text" size="4"></td>
+							<td><input id="3_7" type="text" size="4"></td>
+							<td><input id="2_7" type="text" size="4"></td>
+							<td><input id="1_7" type="text" size="4"></td>
+							<td><input id="0_7" type="text" size="4"></td>
+						</tr>
+						<tr>
+							<th>min.</th>
+							<td><input id="8_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="7_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="6_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="5_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="4_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="3_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="2_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="1_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="0_8" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>max.</th>
+							<td><input id="8_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="7_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="6_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="5_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="4_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="3_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="2_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="1_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="0_9" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>channel</th>
+							<td><input id="8_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="7_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="6_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="5_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="4_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="3_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="2_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="1_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="0_10" type="number" size="3" min="1" max="16"></td>
+						</tr>
+						<tr>
+							<th>behavior</th>
+							<td>
+								<label><input class="8_11" id="8_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="8_11" id="8_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="7_11" id="7_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="7_11" id="7_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="6_11" id="6_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="6_11" id="6_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="5_11" id="5_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="5_11" id="5_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="4_11" id="4_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="4_11" id="4_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="3_11" id="3_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="3_11" id="3_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="2_11" id="2_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="2_11" id="2_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="1_11" id="1_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="1_11" id="1_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="0_11" id="0_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="0_11" id="0_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+						</tr>
+						<tr>
+							<th></th>
+							<th>Expr</th>
+							<th>btn 1</th>
+							<th>btn 2</th>
+							<th>btn 3</th>
+							<th>btn 4</th>
+							<th>btn 5</th>
+							<th>btn 6</th>
+							<th>btn 7</th>
+							<th>Ped</th>
+						</tr>
+						<tr>
+							<th>type</th>
+							<td><select id="9_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="10_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="11_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="12_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="13_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="14_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="15_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="16_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="17_6"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+						</tr>
+						<tr>
+							<th>param.</th>
+							<td><input id="9_7" type="text" size="4"></td>
+							<td><input id="10_7" type="text" size="4"></td>
+							<td><input id="11_7" type="text" size="4"></td>
+							<td><input id="12_7" type="text" size="4"></td>
+							<td><input id="13_7" type="text" size="4"></td>
+							<td><input id="14_7" type="text" size="4"></td>
+							<td><input id="15_7" type="text" size="4"></td>
+							<td><input id="16_7" type="text" size="4"></td>
+							<td><input id="17_7" type="text" size="4"></td>
+						</tr>
+						<tr>
+							<th>min.</th>
+							<td><input id="9_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="10_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="11_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="12_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="13_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="14_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="15_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="16_8" type="number" size="3" min="0" max="127"></td>
+							<td><input id="17_8" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>max.</th>
+							<td><input id="9_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="10_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="11_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="12_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="13_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="14_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="15_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="16_9" type="number" size="3" min="0" max="127"></td>
+							<td><input id="17_9" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>channel</th>
+							<td><input id="9_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="10_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="11_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="12_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="13_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="14_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="15_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="16_10" type="number" size="3" min="1" max="16"></td>
+							<td><input id="17_10" type="number" size="3" min="1" max="16"></td>
+						</tr>
+						<tr>
+							<th>behavior</th>
+							<td>
+								<label><input class="9_11" id="9_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="9_11" id="9_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="10_1" id="10_11_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="10_1" id="10_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="10_11" id="10_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="11_11" id="11_11_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="11_11" id="11_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="11_11" id="11_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="12_11" id="12_11_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="12_11" id="12_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="12_11" id="12_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="13_11" id="13_11_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="13_11" id="13_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="13_11" id="13_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="14_11" id="14_11_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="14_11" id="14_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="14_11" id="14_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="15_11" id="15_11_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="15_11" id="15_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="15_11" id="15_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="16_11" id="16_11_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="16_11" id="16_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="16_11" id="16_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="17_11" id="17_11_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="17_11" id="17_11_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="17_11" id="17_11_both" type="checkbox" value="2"> both</label><br>
+							</td>
+						</tr>
+					</table>
+				</div></div>
+			</div>
+			<div class="tab-pane fade  bg-white" id="alt" role="tabpanel" aria-labelledby="alt-tab">
+				<div class="card border-top-0"><div class="card-body">
+					<table class="mx-auto">
+						<tr>
+							<th></th>
+							<th>DB 16'</th>
+							<th>DB 5 <small>1/3</small>'</th>
+							<th>DB 8</th>
+							<th>DB 4</th>
+							<th>DB 2 <small>2/3</small>'</th>
+							<th>DB 2</th>
+							<th>DB 1 <small>3/5</small>'</th>
+							<th>DB 1 <small>1/3</small>'</th>
+							<th>DB 1</th>
+						</tr>
+
+						<tr>
+							<th>type</th>
+							<td><select id="8_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="7_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="6_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="5_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="4_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="3_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="2_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="1_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="0_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+						</tr>
+
+						<tr>
+							<th>param.</th>
+							<td><input id="8_13" type="text" size="4"></td>
+							<td><input id="7_13" type="text" size="4"></td>
+							<td><input id="6_13" type="text" size="4"></td>
+							<td><input id="5_13" type="text" size="4"></td>
+							<td><input id="4_13" type="text" size="4"></td>
+							<td><input id="3_13" type="text" size="4"></td>
+							<td><input id="2_13" type="text" size="4"></td>
+							<td><input id="1_13" type="text" size="4"></td>
+							<td><input id="0_13" type="text" size="4"></td>
+						</tr>
+						<tr>
+							<th>min.</th>
+							<td><input id="8_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="7_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="6_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="5_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="4_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="3_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="2_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="1_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="0_14" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>max.</th>
+							<td><input id="8_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="7_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="6_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="5_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="4_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="3_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="2_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="1_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="0_15" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>channel</th>
+							<td><input id="8_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="7_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="6_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="5_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="4_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="3_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="2_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="1_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="0_16" type="number" size="3" min="1" max="16"></td>
+						</tr>
+						<tr>
+							<th>behavior</th>
+							<td>
+								<label><input class="8_17" id="8_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="8_17" id="8_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="7_17" id="7_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="7_17" id="7_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="6_17" id="6_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="6_17" id="6_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="5_17" id="5_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="5_17" id="5_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="4_17" id="4_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="4_17" id="4_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="3_17" id="3_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="3_17" id="3_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="2_17" id="2_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="2_17" id="2_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="1_17" id="1_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="1_17" id="1_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="0_17" id="0_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="0_17" id="0_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+						</tr>
+						<tr>
+							<th></th>
+							<th>Expr</th>
+							<th>btn 1</th>
+							<th>btn 2</th>
+							<th>btn 3</th>
+							<th>btn 4</th>
+							<th>btn 5</th>
+							<th>btn 6</th>
+							<th>btn 7</th>
+							<th>Ped</th>
+						</tr>
+						<tr>
+							<th>type</th>
+							<td><select id="9_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="10_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="11_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="12_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="13_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="14_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="15_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="16_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+							<td><select id="17_12"><option value="0">Off</option><option value="1">C.C.</option><option value="2">SysEx</option><option value="3">Note</option><option value="4">Prog.Ch.</option></select></td>
+						</tr>
+						<tr>
+							<th>param.</th>
+							<td><input id="9_13" type="text" size="4"></td>
+							<td><input id="10_13" type="text" size="4"></td>
+							<td><input id="11_13" type="text" size="4"></td>
+							<td><input id="12_13" type="text" size="4"></td>
+							<td><input id="13_13" type="text" size="4"></td>
+							<td><input id="14_13" type="text" size="4"></td>
+							<td><input id="15_13" type="text" size="4"></td>
+							<td><input id="16_13" type="text" size="4"></td>
+							<td><input id="17_13" type="text" size="4"></td>
+						</tr>
+						<tr>
+							<th>min.</th>
+							<td><input id="9_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="10_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="11_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="12_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="13_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="14_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="15_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="16_14" type="number" size="3" min="0" max="127"></td>
+							<td><input id="17_14" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>max.</th>
+							<td><input id="9_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="10_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="11_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="12_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="13_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="14_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="15_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="16_15" type="number" size="3" min="0" max="127"></td>
+							<td><input id="17_15" type="number" size="3" min="0" max="127"></td>
+						</tr>
+						<tr>
+							<th>channel</th>
+							<td><input id="9_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="10_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="11_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="12_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="13_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="14_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="15_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="16_16" type="number" size="3" min="1" max="16"></td>
+							<td><input id="17_16" type="number" size="3" min="1" max="16"></td>
+						</tr>
+						<tr>
+							<th>behavior</th>
+							<td>
+								<label><input class="9_17" id="9_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="9_17" id="9_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="10_17" id="10_17_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="10_17" id="10_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="10_17" id="10_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="11_17" id="11_17_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="11_17" id="11_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="11_17" id="11_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="12_17" id="12_17_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="12_17" id="12_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="12_17" id="12_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="13_17" id="13_17_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="13_17" id="13_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="13_17" id="13_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="14_17" id="14_17_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="14_17" id="14_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="14_17" id="14_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="15_17" id="15_17_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="15_17" id="15_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="15_17" id="15_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="16_1" id="16_17_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="16_1" id="16_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="16_1" id="16_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+							<td>
+								<label><input class="17_17" id="17_17_toggle" type="checkbox" value="4"> toggle</label><br>
+								<label><input class="17_17" id="17_17_global" type="checkbox" value="1"> global</label><br>
+								<label><input class="17_17" id="17_17_both" type="checkbox" value="2"> both</label><br>
+							</td>
+						</tr>
+					</table>
+				</div></div>
+			</div>
+		</div>
+  </div>
+</main>
+
+<footer class="footer mt-auto dpy-3 fixed-bottom bg-dark text-light text-center">
+  <div class="container">
+	<small>
+		<span class="">
+			<span class="badge badge-danger badge-pill" id="connection_status"> Disconnected </span>
+		</span>
+		  <span class="navbar-text">
+			  Firmware version: <tt id="fw_version_label">-.-.-</tt>
+		  </span>
+		  <span class="navbar-text">
+			  Editor version: <tt id="editor_version_label">-.-.-</tt>
+		  </span>
+	</small>
+  </div>
+</footer>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="js/webmidi.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
 </html>

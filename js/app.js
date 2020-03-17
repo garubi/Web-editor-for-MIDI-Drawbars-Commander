@@ -1,4 +1,4 @@
-var editor_version = '0.1.2';
+var editor_version = '0.3.0';
 var DWC_MIDI_NAME = 'UBIStage Drawbars Commander';
 var DWC_MIDI_MANUF_ID_1			=	0x37;
 var DWC_MIDI_MANUF_ID_2			=	0x72;
@@ -32,14 +32,15 @@ var X_ERROR = 0x7F; // Something went wrong
 /*
  * ERROR CODES
  */
-  var X_ERROR_UNKNOWN = 0x7F;
-  var X_ERROR_PRESET  = 0x10;
-  var X_ERROR_CONTROL = 0x20;
-  var X_ERROR_PARAM   = 0x30;
+  var X_ERROR_UNKNOWN = 0x7F; //127
+  var X_ERROR_PRESET  = 0x10; //16
+  var X_ERROR_CONTROL = 0x20; //32
+  var X_ERROR_PARAM   = 0x30; //48
 
 var error = null;
 var midi_connected = false // store the connection status to avoid two "I'm connected"
 var midi_disconnected = false // store the connection status to avoid two "I'm disconnected"
+
 var NUM_PRESETS = 4;
 var NUM_CTRL = 18;
 var ACTIVE_PRESET = '';
@@ -50,6 +51,7 @@ var IS_TOGGLE = 4;
 
 $(function(){
 	$('#editor_version_label').text( editor_version );
+	disable_inputs();
 	// https://github.com/djipco/webmidi
 	WebMidi.enable(function (err) {
 
@@ -75,33 +77,51 @@ $(function(){
 				from_dwc.addListener('sysex', "all", function (e) { parse_sysex( e ) });
 		  }
 
-
 		  if( to_dwc && from_dwc ){
 
 			  WebMidi.addListener("connected", e => {
 				if ( !midi_connected){
 					midi_connected = true;
 					midi_disconnected = false;
-					alert("Device connected: " + e.port.name, e)
+					alert("Device connected: " + e.port.name, e);
+					enable_inputs();
+					$('#connection_status').removeClass('badge-danger');
+					$('#connection_status').addClass('badge-success');
+					$('#connection_status').text('Connected');
 					req_fw_version();
-					// param_init();
 				}
 			  });
 
 			  WebMidi.addListener("disconnected", e => {
 				  if ( !midi_disconnected){
 					  	midi_disconnected = true
-					    alert("Device disconnected: " + e.port.name, e);
 						alert("Device disconnected: " + e.port.name)
+						disable_inputs();
+						$('#connection_status').addClass('badge-danger');
+						$('#connection_status').removeClass('badge-success');
+						$('#connection_status').text('Disconnected');
 						midi_connected = false;
 					}
 			  });
+		  }
+		  else{
+			  //not connected
 		  }
 
 	  }
   	}, true // Enable SysEx support
 	);
 });
+
+function disable_inputs(){
+	$('#input_parameters input,select').prop('disabled', true);
+	$('#preset_reload_btn').prop('disabled', true);
+}
+
+function enable_inputs(){
+	$('#input_parameters input,select').prop('disabled', false);
+	$('#preset_reload_btn').prop('disabled', false);
+}
 
 function req_fw_version( ){
 	console.log('Reqesting firmware version');
@@ -130,6 +150,12 @@ function set_param( preset_id, ctrl_id, param_id, value ){
 function raise_error(error){
 	console.log('error', error);
 }
+
+function save_preset( preset_id ){
+	console.log('send save preset', preset_id);
+	to_dwc.sendSysex( DWC_MANUF, [X_REQ, X_CMD_SAVE_PRESET, preset_id] )
+
+}
 function parse_sysex( e ){
 	console.log();('Received SysEx:', e.data );
 
@@ -154,7 +180,7 @@ function parse_sysex( e ){
 		case X_FW_VER:
 		console.log('receive version');
 			if( error )return raise_error(error);
-			if( data.length != 3 )return raise_error(error);
+			if( data.length != 3 )return raise_error('invalid version data');
 			var version = data.join('.');
 			console.log('version:', version);
 			$('#fw_version_label').text( version );
@@ -165,13 +191,13 @@ function parse_sysex( e ){
 			if( data.length != 1 || data[0] > NUM_PRESETS-1 )return raise_error('invalid preset id');
 			ACTIVE_PRESET = data[0];
 			console.log('active preset: ', ACTIVE_PRESET);
-			$('#active_preset').text( ACTIVE_PRESET );
+			$('#active_preset').text( ACTIVE_PRESET +1 );
 			req_controls( ACTIVE_PRESET, 0 );
 		break;
 		case X_REQ_CTRL_PARAMS:
 			if( error )return raise_error(error);
 			var preset_id = data[0];
-			if( preset_id != ACTIVE_PRESET ) return null; //Discard the message because it's for a preset we are not editing
+			if( preset_id != ACTIVE_PRESET ) return raise_error('not current preset'); //Discard the message because it's for a preset we are not editing
 			var ctrl_id = data[1];
 			var ctrls = data.slice( 2 );
 
@@ -180,32 +206,33 @@ function parse_sysex( e ){
 				if( param == 5 || param == 11 || param == 17 ){ // this are the checkboxes
 
 					if( ctrls[param] & IS_GLOBAL){
-						$('#' + ctrl_id + '_' + param + '_global').attr('checked', 'checked');
+						$('#' + ctrl_id + '_' + param + '_global').prop('checked', true);
 					}
 					if( ctrls[param] & SEND_BOTH){
-						$('#' + ctrl_id + '_' + param + '_both').attr('checked', 'checked');
+						$('#' + ctrl_id + '_' + param + '_both').prop('checked', true);
 					}
 					if( ctrls[param] & IS_TOGGLE){
-						$('#' + ctrl_id + '_' + param + '_toggle').attr('checked', 'checked');
+						$('#' + ctrl_id + '_' + param + '_toggle').prop('checked', true);
 					}
-
 				}
 				else{
 					$('#' + ctrl_id + '_' + param).val(ctrls[param]);
 				}
 			}
 			ctrl_id = ctrl_id + 1;
-			if( ctrl_id <= NUM_CTRL ){ //request for all the controls in the preset
+			if( ctrl_id < NUM_CTRL ){ //request for all the controls in the preset
 				req_controls( ACTIVE_PRESET, ctrl_id );
 			}
+			$('.is_changed').removeClass('is_changed');
+			$('#preset_save_btn').prop('disabled', true)
 		break;
 		case X_SET_CTRL_PARAMS:
 			if( error )return raise_error(error);
 			var preset_id = data[0];
-			if( preset_id != ACTIVE_PRESET ) return null; //Discard the message because it's for a preset we are not editing
+			if( preset_id != ACTIVE_PRESET ) return raise_error('not current preset'); //Discard the message because it's for a preset we are not editing
 			var ctrl_id = data[1];
 			ctrl_id = ctrl_id + 1;
-			if( ctrl_id <= NUM_CTRL ){ //request for all the controls in the preset
+			if( ctrl_id < NUM_CTRL ){ //request for all the controls in the preset
 				set_controls( ACTIVE_PRESET, ctrl_id );
 			}
 		break;
@@ -214,25 +241,39 @@ function parse_sysex( e ){
 			if( error )return raise_error(error);
 			if( data.length != 4 )return raise_error('invalid parameter data');
 			var preset_id = data[0];
-			if( preset_id != ACTIVE_PRESET ) return null; //Discard the message because it's for a preset we are not editing
+			if( preset_id != ACTIVE_PRESET ) return raise_error('not current preset'); //Discard the message because it's for a preset we are not editing
 			var ctrl_id = data[1];
 			var param_id = data[2];
 			var param_value = data[3];
 			console.log('value:', param_value);
 			if( param_id == 5 || param_id == 11 || param_id == 17 ){ // this are the checkboxes
 				if( param_value & IS_GLOBAL){
-					$('#' + ctrl_id + '_' + param_id + '_global').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_global').prop('checked', true);
+					$('#' + ctrl_id + '_' + param_id + '_global').closest('td').addClass('is_changed');
 				}
 				if( param_value & SEND_BOTH){
-					$('#' + ctrl_id + '_' + param_id + '_both').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_both').prop('checked', true);
+					$('#' + ctrl_id + '_' + param_id + '_both').closest('td').addClass('is_changed');
 				}
 				if( param_value & IS_TOGGLE){
-					$('#' + ctrl_id + '_' + param_id + '_toggle').attr('checked', 'checked');
+					$('#' + ctrl_id + '_' + param_id + '_toggle').prop('checked', true);
+					$('#' + ctrl_id + '_' + param_id + '_toggle').closest('td').addClass('is_changed');
 				}
 			}
 			else{
 				$('#' + ctrl_id + '_' + param_id).val(param_value);
+				$('#' + ctrl_id + '_' + param_id).addClass('is_changed');
 			}
+
+		break;
+		case X_CMD_SAVE_PRESET:
+			console.log('reply to X_CMD_SAVE_PRESET');
+			if( error )return raise_error(error);
+			if( data.length != 1 || data[0] > NUM_PRESETS-1 )return raise_error('invalid preset id');
+			alert('Preset ' + data[0] + ' saved.');
+			console.log('preset saved: ', data[0]);
+			$('#preset_save_btn').prop('disabled', true)
+			$('.is_changed').removeClass('is_changed');
 		break;
 		default:
 			console.log( 'unknown sysex data:', data);
@@ -240,12 +281,45 @@ function parse_sysex( e ){
 	}
 }
 
-$('.preset_form input,select').change(function(c) {
-	// console.log('changed');
+$('#input_parameters input[type=text],input[type=number],select').change(function(c) {
+	$('#preset_save_btn').prop('disabled', false)
 	var id = this.id;
 	var ind = id.split("_");
 	var ctrl_id = ind[0];
 	var param_id = ind[1];
 	var value = $( '#' + this.id).val();
+	console.log('changed txt: ', value);
 	set_param( ACTIVE_PRESET, ctrl_id, param_id, value);
+});
+$('#input_parameters input[type=checkbox]').change(function(c) {
+	$('#preset_save_btn').prop('disabled', false)
+	var id = this.id;
+	var ind = id.split("_");
+	var ctrl_id = ind[0];
+	var param_id = ind[1];
+	var value = 0;
+	$( '.' + ctrl_id + '_' + param_id + ':checkbox:checked').each(function() {
+	   value = value + parseInt($(this).val())
+	});
+	console.log('changed check: ', value);
+	set_param( ACTIVE_PRESET, ctrl_id, param_id, value);
+});
+
+$('#preset_save_btn').click(function(e) {
+	console.log('click save');
+	var r = confirm("This action will overwrite the current preset values. Are you sure?");
+	if (r == true) {
+		console.log('ok save');
+	  save_preset( ACTIVE_PRESET );
+	} else {
+		console.log('stop save');
+	  alert('Save Cancelled')
+	}
+
+});
+
+$('#preset_reload_btn').click(function(e) {
+	console.log('click reload');
+	$('input[type=checkbox]').prop('checked', false)
+	req_fw_version();
 });

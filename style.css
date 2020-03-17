@@ -1,0 +1,24 @@
+/* Show it is fixed to the top */
+main .container {
+	padding-top: 93px;
+}
+
+main label{
+	margin-bottom:2px;
+}
+
+input[type=text],input[type=number],select, label{
+	width: 100%;
+}
+
+.is_changed{
+	/* border-color:red; */
+	border: 1px solid #FFC107;
+}
+
+.nav-tabs .nav-link{
+	border-color: #FFC107 #FFC107 #ffffff #FFC107;
+	/* border-color: #FFC107; */
+	color: #495057;
+	background-color: #EBEBE4;
+}
